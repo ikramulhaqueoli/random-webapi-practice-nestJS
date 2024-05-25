@@ -4,7 +4,7 @@ import { CreateUserDto } from 'src/dto/create-user.dto';
 import { LoginUserDto } from 'src/dto/login-user.dto';
 
 @Controller('api')
-export class UsersController {
+export class ApiController {
     constructor(private readonly authService: AuthService) {}
     
     @Post('register')
