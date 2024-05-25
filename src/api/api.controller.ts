@@ -1,11 +1,18 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
 import { AuthService } from 'src/auth/auth.service';
 import { CreateUserDto } from 'src/dto/create-user.dto';
 import { LoginUserDto } from 'src/dto/login-user.dto';
+import { UpdateUserDto } from 'src/dto/update-user.dto';
+import { CreateProfileDto } from 'src/dto/write-profile-dto';
+import { ProfileService } from 'src/profile/profile.service';
+import { Profile } from 'src/schemas/profile.schema';
 
 @Controller('api')
 export class ApiController {
-    constructor(private readonly authService: AuthService) {}
+    constructor(
+        private readonly authService: AuthService,
+        private readonly profileService: ProfileService
+    ) {}
     
     @Post('register')
     async register(@Body() createUserDto: CreateUserDto) {
@@ -14,6 +21,31 @@ export class ApiController {
 
     @Post('login')
     async login(@Body() loginUserDto: LoginUserDto) {
+        return this.authService.login(loginUserDto)
+    }
+
+    @Post('createProfile')
+    async createProfile(@Body() createProfileDto: CreateProfileDto) {
+        return this.profileService.create(createProfileDto);
+    }
+
+    @Get('getProfile/:username')
+    async getProfile(@Param('username') username: string): Promise<Profile> {
+        return this.profileService.get(username)
+    }
+
+    @Put('updateProfile')
+    async updateProfile(@Body() updateProfileDto: UpdateUserDto) {
+        return this.profileService.update(updateProfileDto)
+    }
+
+    @Post('viewMessages')
+    async viewMessages(@Body() loginUserDto: LoginUserDto) {
+        return this.authService.login(loginUserDto)
+    }
+
+    @Post('sendMessage')
+    async sendMessage(@Body() loginUserDto: LoginUserDto) {
         return this.authService.login(loginUserDto)
     }
 }

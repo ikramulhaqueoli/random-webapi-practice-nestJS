@@ -1,6 +1,6 @@
-import { IsNotEmpty, IsString, IsEmail, MinLength, IsNumber } from 'class-validator';
+import { IsNotEmpty, IsString, IsNumber } from 'class-validator';
 
-export class CreateProfileDto {
+abstract class WriteProfileDto {
   @IsNotEmpty()
   @IsString()
   username: string;
@@ -28,4 +28,10 @@ export class CreateProfileDto {
 
   @IsNumber()
   weight?: number;
+}
+
+export abstract class CreateProfileDto extends WriteProfileDto {
+}
+
+export abstract class UpdateProfileDto extends WriteProfileDto {
 }
