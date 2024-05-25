@@ -1,7 +1,6 @@
 import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
 import { AuthService } from 'src/auth/auth.service';
-import { CreateUserDto } from 'src/dto/create-user.dto';
-import { LoginUserDto } from 'src/dto/login-user.dto';
+import { CreateUserDto, LoginUserDto } from 'src/dto/auth-user.dto';
 import { CreateProfileDto, UpdateProfileDto } from 'src/dto/write-profile-dto';
 import { ProfileService } from 'src/profile/profile.service';
 import { Profile } from 'src/schemas/profile.schema';
