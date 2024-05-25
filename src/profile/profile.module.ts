@@ -5,6 +5,7 @@ import { Profile, ProfileSchema } from 'src/schemas/profile.schema';
 
 @Module({
   imports: [MongooseModule.forFeature([{ name: Profile.name, schema: ProfileSchema }])],
-  providers: [ProfileService]
+  providers: [ProfileService],
+  exports: [ProfileService]
 })
 export class ProfileModule {}
