@@ -5,6 +5,29 @@ abstract class WriteProfileDto {
   @IsString()
   username: string;
 
+  @IsString()
+  displayName?: string;
+
+  @IsString()
+  gender?: string;
+
+  @IsString()
+  birthday?: Date;
+
+  @IsString()
+  horoscope?: string;
+
+  @IsString()
+  zodiac?: string;
+
+  @IsNumber()
+  height?: number;
+
+  @IsNumber()
+  weight?: number;
+}
+
+export abstract class CreateProfileDto extends WriteProfileDto {
   @IsNotEmpty()
   @IsString()
   displayName?: string;
@@ -28,9 +51,6 @@ abstract class WriteProfileDto {
 
   @IsNumber()
   weight?: number;
-}
-
-export abstract class CreateProfileDto extends WriteProfileDto {
 }
 
 export abstract class UpdateProfileDto extends WriteProfileDto {
