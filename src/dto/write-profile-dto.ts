@@ -17,14 +17,6 @@ abstract class WriteProfileDto {
   @IsOptional()
   birthday?: Date;
 
-  @IsAlpha()
-  @IsOptional()
-  horoscope?: string;
-
-  @IsAlpha()
-  @IsOptional()
-  zodiac?: string;
-
   @IsNumber()
   @IsOptional()
   height?: number;

@@ -3,6 +3,8 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Profile } from 'src/schemas/profile.schema';
 import { CreateProfileDto, UpdateProfileDto } from 'src/dto/write-profile-dto';
+import { ZodiacCalculatorUtil } from 'src/utils/zodiac-calculator.util';
+import { HoroscopeCalculatorUtil } from 'src/utils/horoscope-calculator.util';
 
 @Injectable()
 export class ProfileService {
@@ -25,6 +27,9 @@ export class ProfileService {
     }
 
     let createdProfile = new this.profileModel(createProfileDto)
+
+    this.calculateZodiacAndHoroscope(createdProfile, createProfileDto.birthday);
+    
     return createdProfile.save();
   }
 
@@ -40,9 +45,20 @@ export class ProfileService {
         }
     });
 
+    this.calculateZodiacAndHoroscope(fieldsToUpdate, updateProfileDto.birthday)
+
     return this.profileModel
         .findOneAndUpdate({ username }, fieldsToUpdate, { new: true })
         .exec();
   }
-
+  
+  calculateZodiacAndHoroscope(document: any, birthday?: Date) {
+    if (birthday) {
+            const horoscope = HoroscopeCalculatorUtil.getHoroscopeByBirthDay(birthday);
+            const zodiac = ZodiacCalculatorUtil.getZodiacSign(birthday);
+            
+            document['zodiac'] = zodiac;
+            document['horoscope'] = horoscope;
+        }
+    }
 }
