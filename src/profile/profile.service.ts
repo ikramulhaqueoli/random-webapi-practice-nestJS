@@ -35,7 +35,7 @@ export class ProfileService {
     const fieldsToUpdate: Partial<UpdateProfileDto> = {};
 
     Object.entries(updateProfileDto).forEach(([key, value]) => {
-        if (value !== undefined && value !== null && value !== '') {
+        if (value !== undefined && value !== null) {
             fieldsToUpdate[key] = value;
         }
     });
