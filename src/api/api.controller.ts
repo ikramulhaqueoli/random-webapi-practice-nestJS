@@ -24,6 +24,7 @@ export class ApiController {
 
     @Post('createProfile')
     async createProfile(@Body() createProfileDto: CreateProfileDto) {
+        console.log(typeof createProfileDto.birthday)
         return this.profileService.create(createProfileDto);
     }
 

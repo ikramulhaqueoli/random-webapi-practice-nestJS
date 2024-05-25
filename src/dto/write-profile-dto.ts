@@ -1,4 +1,5 @@
-import { IsNotEmpty, IsString, IsNumber, IsEmpty, IsOptional, IsAlpha, IsDate } from 'class-validator';
+import { Transform } from 'class-transformer';
+import { IsNotEmpty, IsString, IsNumber, IsEmpty, IsOptional, IsAlpha, IsDate, Matches } from 'class-validator';
 
 abstract class WriteProfileDto {
   @IsNotEmpty()
@@ -6,15 +7,20 @@ abstract class WriteProfileDto {
   username: string;
 
   @IsOptional()
-  @IsAlpha()
+  @Matches(/^[a-zA-Z]+(?:\s[a-zA-Z]+)+$/, {
+    message: 'Display name must contain at least two words and no numeric or special characters',
+  })
   displayName?: string;
 
   @IsOptional()
-  @IsAlpha()
+  @Matches(/^(male|female)$/i, {
+    message: 'Gender must be either "male" or "female".',
+  })
   gender?: string;
 
-  @IsDate()
   @IsOptional()
+  @IsDate()
+  @Transform(({ value }) => new Date(value), { toClassOnly: true })
   birthday?: Date;
 
   @IsNumber()
@@ -27,12 +33,16 @@ abstract class WriteProfileDto {
 }
 
 export abstract class CreateProfileDto extends WriteProfileDto {
-  @IsNotEmpty()
-  @IsString()
+  @IsOptional()
+  @Matches(/^[a-zA-Z]+(?:\s[a-zA-Z]+)+$/, {
+    message: 'Display name must contain at least two words and no numeric or special characters',
+  })
   displayName?: string;
 
   @IsNotEmpty()
-  @IsString()
+  @Matches(/^(male|female)$/i, {
+    message: 'Gender must be either "male" or "female".',
+  })
   gender?: string;
 }
 

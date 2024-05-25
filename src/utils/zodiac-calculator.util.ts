@@ -1,4 +1,4 @@
-import fs from 'fs';
+import * as fs from 'fs';
 import { promisify } from 'util';
 
 interface ZodiacData {
@@ -11,7 +11,7 @@ export class ZodiacCalculatorUtil {
   private static async loadZodiacData() {
     try {
       const readFile = promisify(fs.readFile);
-      const jsonData = await readFile('zodiac-data.json', 'utf8');
+      const jsonData = await readFile('./zodiac-data.json', 'utf8');
       this.zodiacData = JSON.parse(jsonData);
     } catch (error) {
       console.error(`Error loading zodiac data: ${error.message}`);
