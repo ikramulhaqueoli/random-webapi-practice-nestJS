@@ -6,14 +6,14 @@ export class Profile extends Document {
   @Prop({ required: true, unique: true })
   username: string;
 
-  @Prop()
-  displayName?: string;
+  @Prop({ required: true })
+  displayName: string;
 
-  @Prop()
-  gender?: string;
+  @Prop({ required: true })
+  gender: string;
 
-  @Prop({ type: Date, default: Date.now })
-  birthday?: Date;
+  @Prop({ type: Date })
+  birthday: Date;
 
   @Prop()
   horoscope?: string;

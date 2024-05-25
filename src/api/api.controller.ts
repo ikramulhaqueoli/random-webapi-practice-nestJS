@@ -2,8 +2,7 @@ import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
 import { AuthService } from 'src/auth/auth.service';
 import { CreateUserDto } from 'src/dto/create-user.dto';
 import { LoginUserDto } from 'src/dto/login-user.dto';
-import { UpdateUserDto } from 'src/dto/update-user.dto';
-import { CreateProfileDto } from 'src/dto/write-profile-dto';
+import { CreateProfileDto, UpdateProfileDto } from 'src/dto/write-profile-dto';
 import { ProfileService } from 'src/profile/profile.service';
 import { Profile } from 'src/schemas/profile.schema';
 
@@ -35,7 +34,7 @@ export class ApiController {
     }
 
     @Put('updateProfile')
-    async updateProfile(@Body() updateProfileDto: UpdateUserDto) {
+    async updateProfile(@Body() updateProfileDto: UpdateProfileDto) {
         return this.profileService.update(updateProfileDto)
     }
 
