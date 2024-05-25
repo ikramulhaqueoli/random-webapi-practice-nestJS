@@ -1,29 +1,36 @@
-import { IsNotEmpty, IsString, IsNumber } from 'class-validator';
+import { IsNotEmpty, IsString, IsNumber, IsEmpty, IsOptional, IsAlpha, IsDate } from 'class-validator';
 
 abstract class WriteProfileDto {
   @IsNotEmpty()
   @IsString()
   username: string;
 
-  @IsString()
+  @IsOptional()
+  @IsAlpha()
   displayName?: string;
 
-  @IsString()
+  @IsOptional()
+  @IsAlpha()
   gender?: string;
 
-  @IsString()
+  @IsDate()
+  @IsOptional()
   birthday?: Date;
 
-  @IsString()
+  @IsAlpha()
+  @IsOptional()
   horoscope?: string;
 
-  @IsString()
+  @IsAlpha()
+  @IsOptional()
   zodiac?: string;
 
   @IsNumber()
+  @IsOptional()
   height?: number;
 
   @IsNumber()
+  @IsOptional()
   weight?: number;
 }
 
@@ -35,22 +42,6 @@ export abstract class CreateProfileDto extends WriteProfileDto {
   @IsNotEmpty()
   @IsString()
   gender?: string;
-
-  @IsNotEmpty()
-  @IsString()
-  birthday?: Date;
-
-  @IsString()
-  horoscope?: string;
-
-  @IsString()
-  zodiac?: string;
-
-  @IsNumber()
-  height?: number;
-
-  @IsNumber()
-  weight?: number;
 }
 
 export abstract class UpdateProfileDto extends WriteProfileDto {

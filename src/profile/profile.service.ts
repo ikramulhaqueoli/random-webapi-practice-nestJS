@@ -30,13 +30,19 @@ export class ProfileService {
 
   async update(updateProfileDto: UpdateProfileDto): Promise<Profile> {
     const username = updateProfileDto.username
-    var profile = await this.get(username)
+    await this.get(username)
 
-    return this.profileModel.findOneAndUpdate(
-        { username },
-        updateProfileDto,
-        { new: true }
-    ).exec();
+    const fieldsToUpdate: Partial<UpdateProfileDto> = {};
+
+    Object.entries(updateProfileDto).forEach(([key, value]) => {
+        if (value !== undefined && value !== null && value !== '') {
+            fieldsToUpdate[key] = value;
+        }
+    });
+
+    return this.profileModel
+        .findOneAndUpdate({ username }, fieldsToUpdate, { new: true })
+        .exec();
   }
 
 }
