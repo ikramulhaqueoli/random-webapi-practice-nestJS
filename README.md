@@ -57,7 +57,7 @@ Request:
 
 Response:
 {
-    "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im9saS54YnQiLCJpYXQiOjE3MTY3MjU0ODMsImV4cCI6MTcxNjcyOTA4M30.4aYHAZ9_cTlGLy1t7ZAmMrMeFJ0hSAgDZ-srbAcVioI"
+    "access_token": "<generated_jwt_authentication_token>.4aYHAZ9_cTlGLy1t7ZAmMrMeFJ0hSAgDZ-srbAcVioI"
 }
 ```
 
@@ -77,7 +77,7 @@ Response:
 POST /api/createProfile
 
 Header:
-- Authorization: bearer "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im9saS54YnQiLCJpYXQiOjE3MTY3MjU0ODMsImV4cCI6MTcxNjcyOTA4M30"
+- Authorization: bearer "<generated_jwt_authentication_token>"
 
 Request:
 {
@@ -121,7 +121,7 @@ Reponse:
 GET /api/getProfile
 
 Header:
-- Authorization: bearer "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im9saS54YnQiLCJpYXQiOjE3MTY3MjU0ODMsImV4cCI6MTcxNjcyOTA4M30"
+- Authorization: bearer "<generated_jwt_authentication_token>"
 
 Request: {}
 
@@ -156,7 +156,7 @@ Response:
 PUT /api/updateProfile
 
 Header:
-- Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im9saS54YnQiLCJpYXQiOjE3MTY3MjU0ODMsImV4cCI6MTcxNjcyOTA4M30
+- Authorization: bearer <generated_jwt_authentication_token>
 
 Request:
 {
@@ -200,7 +200,7 @@ Response:
 POST /api/viewMessages
 
 Header:
-- Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im9saS54YnQiLCJpYXQiOjE3MTY3MjU0ODMsImV4cCI6MTcxNjcyOTA4M30
+- Authorization: bearer <generated_jwt_authentication_token>
 
 Request:
 {
@@ -246,7 +246,7 @@ Response:
 POST /api/sendMessage
 
 Header:
-- Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im9saS54YnQiLCJpYXQiOjE3MTY3MjU0ODMsImV4cCI6MTcxNjcyOTA4M30
+- Authorization: bearer <generated_jwt_authentication_token>
 
 Request:
 {
