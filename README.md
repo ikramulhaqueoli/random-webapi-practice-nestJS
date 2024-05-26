@@ -57,7 +57,7 @@ Request:
 
 Response:
 {
-    "access_token": "<generated_jwt_authentication_token>.4aYHAZ9_cTlGLy1t7ZAmMrMeFJ0hSAgDZ-srbAcVioI"
+    "access_token": "<generated_jwt_authentication_token>"
 }
 ```
 
