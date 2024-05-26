@@ -97,7 +97,7 @@ Reponse:
     "weight": 50,
     "_id": "6653284c529ee3501d5d21ec",
     "username": "oli.xbt",
-    "zodiac": Tiger,
+    "zodiac": "Tiger",
     "horoscope": "Sagittarius",
     "__v": 0
 }
@@ -156,7 +156,7 @@ Response:
 PUT /api/updateProfile
 
 Header:
-- Authorization: bearer "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im9saS54YnQiLCJpYXQiOjE3MTY3MjU0ODMsImV4cCI6MTcxNjcyOTA4M30"
+- Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im9saS54YnQiLCJpYXQiOjE3MTY3MjU0ODMsImV4cCI6MTcxNjcyOTA4M30
 
 Request:
 {
@@ -200,7 +200,7 @@ Response:
 POST /api/viewMessages
 
 Header:
-- Authorization: bearer "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im9saS54YnQiLCJpYXQiOjE3MTY3MjU0ODMsImV4cCI6MTcxNjcyOTA4M30"
+- Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im9saS54YnQiLCJpYXQiOjE3MTY3MjU0ODMsImV4cCI6MTcxNjcyOTA4M30
 
 Request:
 {
@@ -246,7 +246,7 @@ Response:
 POST /api/sendMessage
 
 Header:
-- Authorization: bearer "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im9saS54YnQiLCJpYXQiOjE3MTY3MjU0ODMsImV4cCI6MTcxNjcyOTA4M30"
+- Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im9saS54YnQiLCJpYXQiOjE3MTY3MjU0ODMsImV4cCI6MTcxNjcyOTA4M30
 
 Request:
 {
