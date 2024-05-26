@@ -35,12 +35,12 @@ Response:
 }
 ```
 
-#### Validation:
+##### Validation:
 - Username must be unique.
 - Email must be unique.
 - Password must contain at least one uppercase letter, one lowercase letter, one numeric digit, and one special character
 
-#### Authorization:
+##### Authorization:
 - No Authorization
 
 ### Login:
@@ -61,12 +61,12 @@ Response:
 }
 ```
 
-#### Validation:
+##### Validation:
 - Username must be unique.
 - Password must contain at least one uppercase letter, one lowercase letter, one numeric digit, and one special character
 - Password must be atleast 6 characters long.
 
-#### Authorization:
+##### Authorization:
 - No Authorization
 
 ### Create Profile:
@@ -103,7 +103,7 @@ Reponse:
 }
 ```
 
-#### Validation:
+##### Validation:
 - DisplayName must contain atleast 2 words and no special character.
 - Gender must be male, female or other.
 - Birthday must be a date and **Age must be atleast 13**.
@@ -111,7 +111,7 @@ Reponse:
 - Weight must be a number.
 - Must have a valid unexpired JWT token.
 
-#### Authorization:
+##### Authorization:
 - Bearer Token (JWT)
 
 ### Get Profile:
@@ -140,10 +140,10 @@ Response:
 }
 ```
 
-#### Validation:
+##### Validation:
 - Must have a valid unexpired JWT token.
 
-#### Authorization:
+##### Authorization:
 - Bearer Token (JWT)
 
 ### Update Profile:
@@ -182,7 +182,7 @@ Response:
 }
 ```
 
-#### Validation:
+##### Validation:
 - (Optional) DisplayName must contain atleast 2 words and no special character.
 - (Optional) Gender must be male, female or other.
 - (Optional) Birthday must be a date and **Age must be atleast 13**.
@@ -190,7 +190,7 @@ Response:
 - (Optional) Weight must be a number.
 - (Optional) Must have a valid unexpired JWT token.
 
-#### Authorization:
+##### Authorization:
 - Bearer Token (JWT)
 
 ### View Messages:
@@ -229,13 +229,13 @@ Response:
 }
 ```
 
-#### Validation:
+##### Validation:
 - partnerUsername must be a valid user in system.
 - Pagination is Optional.
 - Pagination.page must not be 0.
 - Pagination.limit must not be 0.
 
-#### Authorization:
+##### Authorization:
 - Bearer Token (JWT)
 
 ### Send Message:
@@ -268,9 +268,9 @@ Response:
 }
 ```
 
-#### Validation:
+##### Validation:
 - receiverUsername must be a valid user in system.
 - text must not be empty.
 
-#### Authorization:
+##### Authorization:
 - Bearer Token (JWT)
