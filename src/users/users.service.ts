@@ -9,11 +9,11 @@ export class UsersService {
   constructor(@InjectModel(User.name) private userModel: Model<User>) {}
 
   async create(createUserDto: CreateUserDto): Promise<User> {
-    let alreadyExistCount = await this.countByUsername(
+    let alreadyExist = await this.existsByUsernameEmail(
       createUserDto.username,
       createUserDto.email)
       
-    if (alreadyExistCount > 0) {
+    if (alreadyExist) {
       throw new BadRequestException('User with this username or email already exists');
     }
     
@@ -26,11 +26,18 @@ export class UsersService {
     return this.userModel.findOne({ username }).exec();
   }
 
-  async countByUsername(username: string, email: string)
-    : Promise<number | undefined> {
-    return this.userModel
+  async existsByUsernameEmail(username: string, email: string)
+    : Promise<boolean | undefined> {
+    return await this.userModel
       .countDocuments({ $or: [{ username }, { email }], })
-      .exec();
+      .exec() > 0;
+  }
+
+  async existsByUsername(username: string)
+    : Promise<boolean | undefined> {
+    return await this.userModel
+      .countDocuments({ username })
+      .exec() > 0;
   }
 
   async findOneById(id: string): Promise<User | undefined> {

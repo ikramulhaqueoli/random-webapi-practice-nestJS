@@ -19,8 +19,7 @@ export class ProfileService {
     return profile;
   }
 
-  async create(createProfileDto: CreateProfileDto): Promise<Profile> {
-    const username = createProfileDto.username
+  async create(username: string, createProfileDto: CreateProfileDto): Promise<Profile> {
     var profile = await this.profileModel.findOne({ username })
     if (profile) {
         throw new BadRequestException('Profile with this username already exists');
@@ -33,8 +32,7 @@ export class ProfileService {
     return createdProfile.save();
   }
 
-  async update(updateProfileDto: UpdateProfileDto): Promise<Profile> {
-    const username = updateProfileDto.username
+  async update(username: string, updateProfileDto: UpdateProfileDto): Promise<Profile> {
     await this.get(username)
 
     const fieldsToUpdate: Partial<UpdateProfileDto> = {};

@@ -12,11 +12,8 @@ export class Message extends Document {
   @Prop({ required: true })
   text: string;
 
-  @Prop({ type: Date, default: Date.UTC })
+  @Prop({ type: Date, default: Date.now })
   sentAt: Date;
-
-  @Prop({ required: true, default: false })
-  isSeenByReceiver: boolean;
 }
 
 export const MessageSchema = SchemaFactory.createForClass(Message);

@@ -1,12 +1,8 @@
 import { IsNotEmpty, IsString, IsOptional, Validate } from 'class-validator';
-import { PaginationDto } from './PaginationDto';
+import { PaginationDto } from './pagination.dto';
 import { DtoValidator } from 'src/utils/dto-validator.util';
 
 export class ViewMessagesDto {
-  @IsNotEmpty()
-  @IsString()
-  selfUsername: string;
-
   @IsNotEmpty()
   @IsString()
   partnerUsername: string;

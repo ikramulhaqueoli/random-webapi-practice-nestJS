@@ -1,11 +1,7 @@
 import { Transform } from 'class-transformer';
-import { IsNotEmpty, IsString, IsNumber, IsEmpty, IsOptional, IsAlpha, IsDate, Matches } from 'class-validator';
+import { IsNotEmpty, IsNumber, IsOptional, IsDate, Matches } from 'class-validator';
 
 abstract class WriteProfileDto {
-  @IsNotEmpty()
-  @IsString()
-  username: string;
-
   @IsOptional()
   @Matches(/^[a-zA-Z]+(?:\s[a-zA-Z]+)+$/, {
     message: 'Display name must contain at least two words and no numeric or special characters',
