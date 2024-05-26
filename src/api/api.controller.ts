@@ -1,7 +1,9 @@
 import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
 import { AuthService } from 'src/auth/auth.service';
 import { CreateUserDto, LoginUserDto } from 'src/dto/auth-user.dto';
+import { ViewMessagesDto } from 'src/dto/view-messages.dto';
 import { CreateProfileDto, UpdateProfileDto } from 'src/dto/write-profile-dto';
+import { MessageService } from 'src/message/message.service';
 import { ProfileService } from 'src/profile/profile.service';
 import { Profile } from 'src/schemas/profile.schema';
 
@@ -9,7 +11,8 @@ import { Profile } from 'src/schemas/profile.schema';
 export class ApiController {
     constructor(
         private readonly authService: AuthService,
-        private readonly profileService: ProfileService
+        private readonly profileService: ProfileService,
+        private readonly messageService: MessageService
     ) {}
     
     @Post('register')
@@ -39,8 +42,8 @@ export class ApiController {
     }
 
     @Post('viewMessages')
-    async viewMessages(@Body() loginUserDto: LoginUserDto) {
-        return this.authService.login(loginUserDto)
+    async viewMessages(@Body() viewMessagesDto: ViewMessagesDto) {
+        return this.messageService.get(viewMessagesDto)
     }
 
     @Post('sendMessage')
