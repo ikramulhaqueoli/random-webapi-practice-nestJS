@@ -13,7 +13,7 @@ $ npm run start
 ### Base URI: http://localhost:3000
 ### Swagger UI: http://localhost:3000/swagger
 
-### Register:
+### /Register:
 - Registers new user to the system with username, email, password.
 - Password is hashed while storing in database.
 
