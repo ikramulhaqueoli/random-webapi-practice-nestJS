@@ -43,7 +43,7 @@ Response:
 ##### Authorization:
 - No Authorization
 
-### Login:
+### /Login:
 - Gives a JWT token in the response when credentials are valid.
 
 ```http
@@ -114,7 +114,7 @@ Reponse:
 ##### Authorization:
 - Bearer Token (JWT)
 
-### Get Profile:
+### /GetProfile:
 - Gets the profile information of the logged-in user.
 
 ```http
@@ -146,7 +146,7 @@ Response:
 ##### Authorization:
 - Bearer Token (JWT)
 
-### Update Profile:
+### /UpdateProfile:
 - Updates profile.
 - All the fields are optional.
 - Only updates the properties that are given.
@@ -193,7 +193,7 @@ Response:
 ##### Authorization:
 - Bearer Token (JWT)
 
-### View Messages:
+### /ViewMessages:
 - Get paginated messages with partnerUsername of logged-in user.
 
 ```http
@@ -238,7 +238,7 @@ Response:
 ##### Authorization:
 - Bearer Token (JWT)
 
-### Send Message:
+### /SendMessage:
 - Saves message to the database.
 - Send notification through the RabbitMQ queue.
 
