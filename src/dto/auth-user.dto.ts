@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsString, IsEmail, MinLength } from 'class-validator';
+import { IsNotEmpty, IsString, IsEmail, MinLength, Matches } from 'class-validator';
 
 abstract class AuthUserDto {
   @IsNotEmpty()
@@ -8,6 +8,9 @@ abstract class AuthUserDto {
   @IsNotEmpty()
   @IsString()
   @MinLength(6)
+  @Matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,}$/, {
+    message: 'Password must contain at least one uppercase letter, one lowercase letter, one numeric digit, and one special character' 
+  })
   password: string;
 }
 

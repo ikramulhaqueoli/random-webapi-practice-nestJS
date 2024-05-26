@@ -9,7 +9,7 @@ abstract class WriteProfileDto {
   displayName?: string;
 
   @IsOptional()
-  @Matches(/^(male|female)$/i, {
+  @Matches(/^(male|female|other)$/i, {
     message: 'Gender must be either "male" or "female".',
   })
   gender?: string;
