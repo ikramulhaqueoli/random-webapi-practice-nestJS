@@ -75,6 +75,10 @@ Response:
 
 ```http
 POST /api/createProfile
+
+Header:
+- Authorization: bearer "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im9saS54YnQiLCJpYXQiOjE3MTY3MjU0ODMsImV4cCI6MTcxNjcyOTA4M30"
+
 Request:
 {
     "displayName": "Ikramul Haque",
@@ -116,6 +120,9 @@ Reponse:
 ```http
 GET /api/getProfile
 
+Header:
+- Authorization: bearer "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im9saS54YnQiLCJpYXQiOjE3MTY3MjU0ODMsImV4cCI6MTcxNjcyOTA4M30"
+
 Request:
 {
 }
@@ -149,6 +156,10 @@ Response:
 
 ```http
 PUT /api/updateProfile
+
+Header:
+- Authorization: bearer "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im9saS54YnQiLCJpYXQiOjE3MTY3MjU0ODMsImV4cCI6MTcxNjcyOTA4M30"
+
 Request:
 {
     "displayName": "Ikramul Haque",
@@ -188,6 +199,10 @@ Response:
 
 ```http
 POST /api/viewMessages
+
+Header:
+- Authorization: bearer "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im9saS54YnQiLCJpYXQiOjE3MTY3MjU0ODMsImV4cCI6MTcxNjcyOTA4M30"
+
 Request:
 {
     "partnerUsername": "olixbt",
@@ -230,6 +245,10 @@ Response:
 
 ```http
 POST /api/sendMessage
+
+Header:
+- Authorization: bearer "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im9saS54YnQiLCJpYXQiOjE3MTY3MjU0ODMsImV4cCI6MTcxNjcyOTA4M30"
+
 Request:
 {
     "receiverUsername": "olixbt",
