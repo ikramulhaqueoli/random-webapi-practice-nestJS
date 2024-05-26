@@ -69,7 +69,7 @@ Response:
 ##### Authorization:
 - No Authorization
 
-### Create Profile:
+### /CreateProfile:
 - Create Profile for the logged-in user to the system.
 - Zodiac and Horoscope is calculated if birthday is given.
 
