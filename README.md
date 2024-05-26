@@ -77,7 +77,7 @@ Response:
 POST /api/createProfile
 
 Header:
-- Authorization: bearer "<generated_jwt_authentication_token>"
+Authorization: bearer "<generated_jwt_authentication_token>"
 
 Request:
 {
@@ -121,7 +121,7 @@ Reponse:
 GET /api/getProfile
 
 Header:
-- Authorization: bearer "<generated_jwt_authentication_token>"
+Authorization: bearer "<generated_jwt_authentication_token>"
 
 Request: {}
 
@@ -156,7 +156,7 @@ Response:
 PUT /api/updateProfile
 
 Header:
-- Authorization: bearer <generated_jwt_authentication_token>
+Authorization: bearer <generated_jwt_authentication_token>
 
 Request:
 {
@@ -200,7 +200,7 @@ Response:
 POST /api/viewMessages
 
 Header:
-- Authorization: bearer <generated_jwt_authentication_token>
+Authorization: bearer <generated_jwt_authentication_token>
 
 Request:
 {
@@ -246,7 +246,7 @@ Response:
 POST /api/sendMessage
 
 Header:
-- Authorization: bearer <generated_jwt_authentication_token>
+Authorization: bearer <generated_jwt_authentication_token>
 
 Request:
 {
