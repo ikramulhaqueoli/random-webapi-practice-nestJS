@@ -123,9 +123,7 @@ GET /api/getProfile
 Header:
 - Authorization: bearer "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im9saS54YnQiLCJpYXQiOjE3MTY3MjU0ODMsImV4cCI6MTcxNjcyOTA4M30"
 
-Request:
-{
-}
+Request: {}
 
 Response:
 {
@@ -168,6 +166,7 @@ Request:
     "height": 40,
     "weight": 30
 }
+
 Response:
 {
     "_id": "6653284c529ee3501d5d21ec",
@@ -254,6 +253,7 @@ Request:
     "receiverUsername": "olixbt",
     "text": "This is a test message."
 }
+
 Response:
 {
     "success": true,
