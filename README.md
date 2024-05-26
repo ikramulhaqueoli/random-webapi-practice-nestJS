@@ -8,10 +8,10 @@ $ docker-compose up -d
 $ npm run start
 ```
 
-## API Endpoints
-
 ### Base URI: http://localhost:3000
 ### Swagger UI: http://localhost:3000/swagger
+
+## API Endpoints
 
 ### /Register:
 - Registers new user to the system with username, email, password.
