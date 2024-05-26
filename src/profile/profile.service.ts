@@ -26,6 +26,7 @@ export class ProfileService {
     }
 
     let createdProfile = new this.profileModel(createProfileDto)
+    createdProfile['username'] = username
 
     this.calculateZodiacAndHoroscope(createdProfile, createProfileDto.birthday);
     

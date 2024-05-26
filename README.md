@@ -11,6 +11,7 @@ $ npm run start
 ## API Endpoints
 
 ### Base URI: http://localhost:3000
+### Swagger UI: http://localhost:3000/swagger
 
 ### Register:
 - Registers new user to the system with username, email, password.
@@ -21,16 +22,16 @@ POST /api/register
 
 Request:
 {
-    "username": "olixbt",
-    "password": "password786",
-    "email": "olixbt@gmail.com"
+    "username": "oli.xbt",
+    "password": "Amixbt1!",
+    "email": "oli.xbt@gmail.com"
 }
 
 Response:
 {
     "success": true,
-    "username": "olixbt",
-    "id": "66529a6102ed0474329666ca"
+    "username": "oli.xbt",
+    "id": "665326c767f489169d214fba"
 }
 ```
 
@@ -50,8 +51,13 @@ POST /api/login
 
 Request:
 {
-    "username": "olixbt",
-    "password": "password786"
+    "username": "oli.xbt",
+    "password": "Amixbt1!"
+}
+
+Response:
+{
+    "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im9saS54YnQiLCJpYXQiOjE3MTY3MjU0ODMsImV4cCI6MTcxNjcyOTA4M30.4aYHAZ9_cTlGLy1t7ZAmMrMeFJ0hSAgDZ-srbAcVioI"
 }
 ```
 
@@ -65,6 +71,7 @@ Request:
 
 ### Create Profile:
 - Create Profile for the logged-in user to the system.
+- Zodiac and Horoscope is calculated if birthday is given.
 
 ```http
 POST /api/createProfile
@@ -73,8 +80,22 @@ Request:
     "displayName": "Ikramul Haque",
     "gender": "male",
     "birthday": "12-04-1996",
-    "height": "60",
-    "weight": "50"
+    "height": 60,
+    "weight": 50
+}
+
+Reponse:
+{
+    "displayName": "Ikramul Haque",
+    "gender": "male",
+    "birthday": "1998-01-28T18:00:00.000Z",
+    "height": 60,
+    "weight": 50,
+    "_id": "6653284c529ee3501d5d21ec",
+    "username": "oli.xbt",
+    "zodiac": Tiger,
+    "horoscope": "Sagittarius",
+    "__v": 0
 }
 ```
 
@@ -98,6 +119,20 @@ GET /api/getProfile
 Request:
 {
 }
+
+Response:
+{
+    "_id": "6653284c529ee3501d5d21ec",
+    "displayName": "Ikramul Haque",
+    "gender": "male",
+    "birthday": "1998-01-28T18:00:00.000Z",
+    "height": 60,
+    "weight": 50,
+    "username": "oli.xbt",
+    "zodiac": "Tiger",
+    "horoscope": "Sagittarius",
+    "__v": 0
+}
 ```
 
 #### Validation:
@@ -110,6 +145,7 @@ Request:
 - Updates profile.
 - All the fields are optional.
 - Only updates the properties that are given.
+- Zodiac and Horoscope is updated when birthday is updated.
 
 ```http
 PUT /api/updateProfile
@@ -117,9 +153,22 @@ Request:
 {
     "displayName": "Ikramul Haque",
     "gender": "male",
-    "birthday": "12-04-1996",
-    "height": "60",
-    "weight": "50"
+    "birthday": "01-28-1998",
+    "height": 40,
+    "weight": 30
+}
+Response:
+{
+    "_id": "6653284c529ee3501d5d21ec",
+    "displayName": "Ikramul Haque",
+    "gender": "male",
+    "birthday": "1998-01-27T18:00:00.000Z",
+    "height": 40,
+    "weight": 30,
+    "username": "oli.xbt",
+    "zodiac": "Ox",
+    "horoscope": "Aquarius",
+    "__v": 0
 }
 ```
 
@@ -141,11 +190,28 @@ Request:
 POST /api/viewMessages
 Request:
 {
-    "partnerUsername": "dhimanda",
+    "partnerUsername": "olixbt",
     "pagination": {
         "page": 1,
         "limit": 20
     }
+}
+
+Response:
+{
+    "data": [
+        {
+            "_id": "66532992529ee3501d5d21f4",
+            "receiverUsername": "olixbt",
+            "text": "This is a test message.",
+            "sentAt": "2024-05-26T12:22:42.051Z",
+            "senderUsername": "oli.xbt",
+            "__v": 0
+        }
+    ],
+    "totalMessages": 1,
+    "totalPages": 1,
+    "currentPage": 1
 }
 ```
 
@@ -166,8 +232,20 @@ Request:
 POST /api/sendMessage
 Request:
 {
-    "receiverUsername": "dhimanda",
+    "receiverUsername": "olixbt",
     "text": "This is a test message."
+}
+Response:
+{
+    "success": true,
+    "message": {
+        "receiverUsername": "olixbt",
+        "text": "This is a test message.",
+        "_id": "66532992529ee3501d5d21f4",
+        "sentAt": "2024-05-26T12:22:42.051Z",
+        "senderUsername": "oli.xbt",
+        "__v": 0
+    }
 }
 ```
 

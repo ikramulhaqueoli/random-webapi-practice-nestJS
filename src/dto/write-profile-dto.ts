@@ -1,3 +1,4 @@
+import { ApiProperty } from '@nestjs/swagger';
 import { Transform } from 'class-transformer';
 import { IsNotEmpty, IsNumber, IsOptional, IsDate, Matches } from 'class-validator';
 
@@ -6,25 +7,30 @@ abstract class WriteProfileDto {
   @Matches(/^[a-zA-Z]+(?:\s[a-zA-Z]+)+$/, {
     message: 'Display name must contain at least two words and no numeric or special characters',
   })
+  @ApiProperty()
   displayName?: string;
 
   @IsOptional()
   @Matches(/^(male|female|other)$/i, {
-    message: 'Gender must be either "male" or "female".',
+    message: 'Gender must be either "male", "female" or "other".',
   })
+  @ApiProperty()
   gender?: string;
 
   @IsOptional()
   @IsDate()
+  @ApiProperty()
   @Transform(({ value }) => new Date(value), { toClassOnly: true })
   birthday?: Date;
 
   @IsNumber()
   @IsOptional()
+  @ApiProperty()
   height?: number;
 
   @IsNumber()
   @IsOptional()
+  @ApiProperty()
   weight?: number;
 }
 
@@ -33,11 +39,13 @@ export abstract class CreateProfileDto extends WriteProfileDto {
   @Matches(/^[a-zA-Z]+(?:\s[a-zA-Z]+)+$/, {
     message: 'Display name must contain at least two words and no numeric or special characters',
   })
+  @ApiProperty()
   displayName?: string;
 
   @IsNotEmpty()
-  @Matches(/^(male|female)$/i, {
-    message: 'Gender must be either "male" or "female".',
+  @ApiProperty()
+  @Matches(/^(male|female|other)$/i, {
+    message: 'Gender must be either "male", "female" or "other".',
   })
   gender?: string;
 }
