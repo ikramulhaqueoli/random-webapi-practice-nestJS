@@ -1,6 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { Transform } from 'class-transformer';
 import { IsNotEmpty, IsNumber, IsOptional, IsDate, Matches } from 'class-validator';
+import { IsOldEnough } from 'src/utils/validation.util';
 
 abstract class WriteProfileDto {
   @IsOptional()
@@ -20,6 +21,7 @@ abstract class WriteProfileDto {
   @IsOptional()
   @IsDate()
   @ApiProperty()
+  @IsOldEnough({ message: "Age must be atleast 13." })
   @Transform(({ value }) => new Date(value), { toClassOnly: true })
   birthday?: Date;
 

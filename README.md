@@ -102,7 +102,7 @@ Reponse:
 #### Validation:
 - DisplayName must contain atleast 2 words and no special character.
 - Gender must be male, female or other.
-- Birthday must be a date.
+- Birthday must be a date and Age must be atleast 13.
 - Height must be a number.
 - Weight must be a number.
 - Must have a valid unexpired JWT token.
@@ -175,7 +175,7 @@ Response:
 #### Validation:
 - (Optional) DisplayName must contain atleast 2 words and no special character.
 - (Optional) Gender must be male, female or other.
-- (Optional) Birthday must be a date.
+- (Optional) Birthday must be a date and Age must be atleast 13.
 - (Optional) Height must be a number.
 - (Optional) Weight must be a number.
 - (Optional) Must have a valid unexpired JWT token.
